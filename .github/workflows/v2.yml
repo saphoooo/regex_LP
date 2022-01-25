@@ -1,4 +1,4 @@
-name: hellogo
+name: wordfindv2
 
 on:
   push:
