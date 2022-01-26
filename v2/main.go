@@ -26,12 +26,12 @@ func main() {
 func wordFinding(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		fmt.Println("an error occured: " + err.Error())
+		fmt.Println("an error occurred: " + err.Error())
 	}
 	msg := message{}
 	err = json.Unmarshal(body, &msg)
 	if err != nil {
-		fmt.Println("an error occured: " + err.Error())
+		fmt.Println("an error occurred: " + err.Error())
 	}
 	result := strings.Index(msg.Sentence, msg.Word)
 	if result == 0 {

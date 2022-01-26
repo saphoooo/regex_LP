@@ -1,7 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordfind
+  name: wordfindv2
+  labels:
+    app: wordfind
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordfind
+  template:
+    metadata:
+      labels:
+        app: wordfind
+    spec:
+      containers:
+      - name: wordfindv2
+        image: saphoooo/wordfind:v2
+        ports:
+        - containerPort: 8000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordfindv1
   labels:
     app: wordfind
 spec:
@@ -17,10 +40,6 @@ spec:
       containers:
       - name: wordfindv1
         image: saphoooo/wordfind:v1
-        ports:
-        - containerPort: 8000
-      - name: wordfindv2
-        image: saphoooo/wordfind:v2
         ports:
         - containerPort: 8000
 
